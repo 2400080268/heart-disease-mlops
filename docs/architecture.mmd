@@ -1,0 +1,15 @@
+flowchart TD
+  A[UCI Cleveland raw file] --> B[Data validation]
+  B --> C[Binary target mapping]
+  C --> D[Stratified split]
+  D --> E[Train-only preprocessing]
+  E --> F[Logistic Regression]
+  E --> G[Random Forest]
+  F --> H[Metrics and MLflow]
+  G --> H
+  H --> I[ROC-AUC model selection]
+  I --> J[Joblib model and schema]
+  J --> K[FastAPI]
+  K --> L[Streamlit]
+  K --> M[Prediction log and summary]
+  N[GitHub Actions] --> O[Pipeline and pytest]

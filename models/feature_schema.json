@@ -1,0 +1,38 @@
+{
+  "feature_columns": [
+    "age",
+    "sex",
+    "cp",
+    "trestbps",
+    "chol",
+    "fbs",
+    "restecg",
+    "thalach",
+    "exang",
+    "oldpeak",
+    "slope",
+    "ca",
+    "thal"
+  ],
+  "categorical_features": [
+    "sex",
+    "cp",
+    "fbs",
+    "restecg",
+    "exang",
+    "slope",
+    "ca",
+    "thal"
+  ],
+  "target": {
+    "name": "target",
+    "mapping": {
+      "0": "no disease",
+      "1-4": "disease"
+    }
+  },
+  "model_name": "Logistic Regression",
+  "model_version": "1.0.0",
+  "selection_metric": "roc_auc",
+  "random_state": 42
+}

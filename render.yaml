@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: heart-disease-api
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && python scripts/run_pipeline.py
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+
+  - type: web
+    name: heart-disease-streamlit
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run streamlit_app/app.py --server.address 0.0.0.0 --server.port $PORT
+    envVars:
+      - key: API_URL
+        fromService:
+          type: web
+          name: heart-disease-api
+          envVarKey: RENDER_EXTERNAL_URL
